@@ -1,0 +1,86 @@
+usage: pcp [-h] [-c CONFIG_FILE] [-U USERNAME] [-W PASSWORD] [-K KEYFILE]
+           [-H HOST] [-P PORT] -T CONNECTION_TYPE [-S SERVICE_NAME]
+           [-Z REMOTE_PREFIX] [-x TRANSACTION] [-v] [-D] [-L LOG_FILE]
+           [--no-host-key-checking] [-t TARGET_FOLDER] [-X] [-C]
+           [-E REMOTE_ENCODING] [-r]
+           SOURCE_FILE [SOURCE_FILE ...] DESTINATION_FILE
+
+Copies file(s) from source address to destination address. At least source or
+destination address must be remote.
+
+positional arguments:
+  SOURCE_FILE           Source file(s) to transmit. It may contain wildcards.
+                        Remote file(s) must start with prefix r:
+  DESTINATION_FILE      Destination file to be transmited to. If there is more
+                        than one source file, the destination file must be a
+                        folder. Remote file must start with prefix r:
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -c CONFIG_FILE, --config-file CONFIG_FILE
+                        Configuration file path. [env var: RFSTOOLS_CONFIG]
+  -U USERNAME, --username USERNAME
+                        Username, which is used to connect the file storage.
+                        [env var: RFSTOOLS_USERNAME]
+  -W PASSWORD, --password PASSWORD
+                        Password, which is used to connect the file storage.
+                        [env var: RFSTOOLS_PASSWORD]
+  -K KEYFILE, --keyfile KEYFILE
+                        A keyfile, which is used to connect the file storage.
+                        Not used if password is given. Defaults to
+                        ~/.ssh/id_rsa . Applicable only for SFTP. [env var:
+                        RFSTOOLS_KEYFILE]
+  -H HOST, --host HOST  The address of server. [env var: RFSTOOLS_HOST]
+  -P PORT, --port PORT  The port for a connection to the file storage.
+                        Defaults to RFC standard port. [env var:
+                        RFSTOOLS_PORT]
+  -T CONNECTION_TYPE, --connection-type CONNECTION_TYPE
+                        A connection type to the file storage.
+                        (SMB/SFTP/FTP/FS/FTPS) [env var:
+                        RFSTOOLS_CONNECTION_TYPE]
+  -S SERVICE_NAME, --service-name SERVICE_NAME
+                        Contains a name of shared folder. Applicable only for
+                        SMB. [env var: RFSTOOLS_SHARED_FOLDER]
+  -Z REMOTE_PREFIX, --remote-prefix REMOTE_PREFIX
+                        Contains a prefix, which will be prepended to all
+                        remote addresses. [env var: RFSTOOLS_REMOTE_PREFIX]
+  -x TRANSACTION, --transaction TRANSACTION
+                        Specifies the name of transaction in which the command
+                        should be executed. Not implemented yet. [env var:
+                        RFSTOOLS_TRANSACTION]
+  -v, --verbose         Enables verbose mode. [env var: RFSTOOLS_VERBOSE]
+  -D, --debug-mode      Enables debug mode. Implies verbose mode. [env var:
+                        RFSTOOLS_DEBUG]
+  -L LOG_FILE, --log-file LOG_FILE
+                        Redirect all log messages to a file. [env var:
+                        RFSTOOLS_LOG_FILE]
+  --no-host-key-checking
+                        Disables host SSH key knowledge requirements policy.
+                        Be aware, that using this option makes you volnerable
+                        to MITM attack. Applicable only for SFTP. [env var:
+                        RFSTOOLS_NO_HOST_KEY_CHECKING]
+  -t TARGET_FOLDER, --target-folder TARGET_FOLDER
+                        If target folder is specified, it will be used instead
+                        of DESTINATION FILE. DESTINATION FILE positional
+                        argument will be no longer parsed if used. [env var:
+                        RFSTOOLS_TARGET_FOLDER]
+  -X, --text-transmission
+                        Enable text transmission transformations to/from UTF8
+                        and LF. Local files will be using this option always
+                        transformated to/from UTF8 and LF from/to remote
+                        encoding and remote line terminators. BE SURE NOT TO
+                        TRANSMIT BINARY DATA WITH THIS OPTION. [env var:
+                        RFSTOOLS_TEXT_TRANSMISSION]
+  -C, --remote-crlf     Remote target uses CRLF instead of LF [env var:
+                        RFSTOOLS_REMOTE_CRLF]
+  -E REMOTE_ENCODING, --remote-encoding REMOTE_ENCODING
+                        The encoding of the remote target (eg. UTF8, UTF16).
+                        Defaults to UTF8. [env var: RFSTOOLS_REMOTE_ENCODING]
+  -r, --recursive       Enables recursive coping.
+
+Args that start with '--' (eg. -U) can also be set in a config file
+(/etc/rfstools.conf or ~/.rfstools.conf or specified via -c). Config file
+syntax allows: key=value, flag=true, stuff=[a,b,c] (for details, see syntax at
+https://goo.gl/R74nmi). If an arg is specified in more than one place, then
+commandline values override environment variables which override config file
+values which override defaults.
