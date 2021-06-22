@@ -40,7 +40,7 @@ optional arguments:
                         RFSTOOLS_CONNECTION_TYPE]
   -S SERVICE_NAME, --service-name SERVICE_NAME
                         Contains a name of shared folder. Applicable only for
-                        SMB. [env var: RFSTOOLS_SHARED_FOLDER]
+                        SMB. [env var: RFSTOOLS_SERVICE_NAME]
   -Z REMOTE_PREFIX, --remote-prefix REMOTE_PREFIX
                         Contains a prefix, which will be prepended to all
                         remote addresses. [env var: RFSTOOLS_REMOTE_PREFIX]

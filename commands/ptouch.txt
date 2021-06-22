@@ -1,15 +1,15 @@
-usage: pls [-h] [-c CONFIG_FILE] [-U USERNAME] [-W PASSWORD] [-K KEYFILE]
-           [-H HOST] [-P PORT] -T CONNECTION_TYPE [-S SERVICE_NAME]
-           [-Z REMOTE_PREFIX] [-x TRANSACTION] [-v] [-D] [-L LOG_FILE]
-           [--no-host-key-checking] [-p]
-           FILE
+usage: ptouch [-h] [-c CONFIG_FILE] [-U USERNAME] [-W PASSWORD] [-K KEYFILE]
+              [-H HOST] [-P PORT] -T CONNECTION_TYPE [-S SERVICE_NAME]
+              [-Z REMOTE_PREFIX] [-x TRANSACTION] [-v] [-D] [-L LOG_FILE]
+              [--no-host-key-checking]
+              FILES) [FILE(S ...]
 
-This command list a given remote folder, or returns a file name, if it is not
-a folder.
+This command creates empty files at remote destination.
 
 positional arguments:
-  FILE                  File to process. File must start with prefix r: - no
-                        other file than remote is supported.
+  FILE(S)               File(s) to process. It may contain wildcards. Files
+                        must start with prefix r: - no other files than remote
+                        are supported.
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -55,8 +55,6 @@ optional arguments:
                         Be aware, that using this option makes you volnerable
                         to MITM attack. Applicable only for SFTP. [env var:
                         RFSTOOLS_NO_HOST_KEY_CHECKING]
-  -p, --prepend-dirname
-                        Enables prepending dirnames to the output.
 
 Args that start with '--' (eg. -U) can also be set in a config file
 (/etc/rfstools.conf or ~/.rfstools.conf or specified via -c). Config file
