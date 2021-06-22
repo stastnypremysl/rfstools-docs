@@ -7,6 +7,7 @@ The developer documentation is in file [rfstools-dev-doc.pdf](./rfstools-dev-doc
 
 * [pcp](./commands/pcp.txt)
 * [pexist](./commands/pexist.txt)
+* [pisdir](./commands/pisdir.txt)
 * [pls](./commands/pls.txt)
 * [pmkdir](./commands/pmkdir.txt)
 * [pmv](./commands/pmv.txt)
