@@ -3,8 +3,8 @@ usage: pisdir [-h] [-c CONFIG_FILE] [-U USERNAME] [-W PASSWORD] [-K KEYFILE]
               [--client-name CLIENT_NAME] [--use-ntlm-v1] [--use-direct-tcp]
               [--enable-encryption] [--disable-secure-negotiate] [--no-dfs]
               [--dfs-domain-controller DFS_DOMAIN_CONTROLLER]
-              [-Z REMOTE_PREFIX] [-x TRANSACTION] [-v] [-D] [-L LOG_FILE]
-              [--no-host-key-checking]
+              [--dont-require-signing] [-Z REMOTE_PREFIX] [-x TRANSACTION]
+              [-v] [-D] [-L LOG_FILE] [--no-host-key-checking]
               FILES) [FILE(S ...]
 
 This command exits with success, when all given remote files are dirs. The
@@ -64,6 +64,9 @@ optional arguments:
                         when rfstools fails to find it themself. Applicable
                         only for SMB23 [env var:
                         RFSTOOLS_DFS_DOMAIN_CONTROLLER]
+  --dont-require-signing
+                        Disables signing requirement. Applicable only for
+                        SMB23. [env var: RFSTOOLS_DONT_REQUIRE_SIGNING]
   -Z REMOTE_PREFIX, --remote-prefix REMOTE_PREFIX
                         Contains a prefix, which will be prepended to all
                         remote addresses. [env var: RFSTOOLS_REMOTE_PREFIX]

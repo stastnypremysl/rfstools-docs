@@ -2,9 +2,9 @@ usage: prm [-h] [-c CONFIG_FILE] [-U USERNAME] [-W PASSWORD] [-K KEYFILE]
            [-H HOST] [-P PORT] -T CONNECTION_TYPE [-S SERVICE_NAME]
            [--client-name CLIENT_NAME] [--use-ntlm-v1] [--use-direct-tcp]
            [--enable-encryption] [--disable-secure-negotiate] [--no-dfs]
-           [--dfs-domain-controller DFS_DOMAIN_CONTROLLER] [-Z REMOTE_PREFIX]
-           [-x TRANSACTION] [-v] [-D] [-L LOG_FILE] [--no-host-key-checking]
-           [-r]
+           [--dfs-domain-controller DFS_DOMAIN_CONTROLLER]
+           [--dont-require-signing] [-Z REMOTE_PREFIX] [-x TRANSACTION] [-v]
+           [-D] [-L LOG_FILE] [--no-host-key-checking] [-r]
            FILES) [FILE(S ...]
 
 This command unlinks nonfolder files. If recursivity enabled, it deletes whole
@@ -64,6 +64,9 @@ optional arguments:
                         when rfstools fails to find it themself. Applicable
                         only for SMB23 [env var:
                         RFSTOOLS_DFS_DOMAIN_CONTROLLER]
+  --dont-require-signing
+                        Disables signing requirement. Applicable only for
+                        SMB23. [env var: RFSTOOLS_DONT_REQUIRE_SIGNING]
   -Z REMOTE_PREFIX, --remote-prefix REMOTE_PREFIX
                         Contains a prefix, which will be prepended to all
                         remote addresses. [env var: RFSTOOLS_REMOTE_PREFIX]
