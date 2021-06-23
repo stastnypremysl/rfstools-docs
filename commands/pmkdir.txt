@@ -1,5 +1,8 @@
 usage: pmkdir [-h] [-c CONFIG_FILE] [-U USERNAME] [-W PASSWORD] [-K KEYFILE]
               [-H HOST] [-P PORT] -T CONNECTION_TYPE [-S SERVICE_NAME]
+              [--client-name CLIENT_NAME] [--use-ntlm-v1] [--use-direct-tcp]
+              [--enable-encryption] [--disable-secure-negotiate] [--no-dfs]
+              [--dfs-domain-controller DFS_DOMAIN_CONTROLLER]
               [-Z REMOTE_PREFIX] [-x TRANSACTION] [-v] [-D] [-L LOG_FILE]
               [--no-host-key-checking] [-p]
               FILE
@@ -32,11 +35,34 @@ optional arguments:
                         RFSTOOLS_PORT]
   -T CONNECTION_TYPE, --connection-type CONNECTION_TYPE
                         A connection type to the file storage.
-                        (SMB/SFTP/FTP/FS/FTPS) [env var:
+                        (SMB12/SMB23/SFTP/FTP/FS/FTPS) SMB12 is samba version
+                        1 or 2 and SMB23 is samba version 2 or 3. [env var:
                         RFSTOOLS_CONNECTION_TYPE]
   -S SERVICE_NAME, --service-name SERVICE_NAME
                         Contains a name of shared folder. Applicable only for
-                        SMB. [env var: RFSTOOLS_SERVICE_NAME]
+                        SMB12/SMB23. [env var: RFSTOOLS_SERVICE_NAME]
+  --client-name CLIENT_NAME
+                        Overrides a default RFSTOOLS client name. Applicable
+                        only for SMB12. [env var: RFSTOOLS_CLIENT_NAME]
+  --use-ntlm-v1         Enables deprecated ntlm-v1 authentication. Applicable
+                        only for SMB12. [env var: RFSTOOLS_USE_NTLM_V1]
+  --use-direct-tcp      Enables newer direct TCP connection over NetBIOS
+                        connection. Applicable only for SMB12. (don't forget
+                        to change port to 445) [env var:
+                        RFSTOOLS_USE_DIRECT_TCP]
+  --enable-encryption   Enables encryption for a SMB3 connection. Applicable
+                        only for SMB23. [env var: RFSTOOLS_ENABLE_ENCRYPTION]
+  --disable-secure-negotiate
+                        Disables secure negotiate requirement for a SMB
+                        connection. Applicable only for SMB23. [env var:
+                        RFSTOOLS_DISABLE_SECURE_NEGOTIATE]
+  --no-dfs              Disables DFS support - useful as a bug fix. Applicable
+                        only for SMB23. [env var: RFSTOOLS_NO_DFS]
+  --dfs-domain-controller DFS_DOMAIN_CONTROLLER
+                        The DFS domain controller address. Useful in case,
+                        when rfstools fails to find it themself. Applicable
+                        only for SMB23 [env var:
+                        RFSTOOLS_DFS_DOMAIN_CONTROLLER]
   -Z REMOTE_PREFIX, --remote-prefix REMOTE_PREFIX
                         Contains a prefix, which will be prepended to all
                         remote addresses. [env var: RFSTOOLS_REMOTE_PREFIX]
