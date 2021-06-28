@@ -4,15 +4,17 @@ usage: pls [-h] [-c CONFIG_FILE] [-U USERNAME] [-W PASSWORD] [-K KEYFILE]
            [--enable-encryption] [--disable-secure-negotiate] [--no-dfs]
            [--dfs-domain-controller DFS_DOMAIN_CONTROLLER]
            [--dont-require-signing] [-Z REMOTE_PREFIX] [-x TRANSACTION] [-v]
-           [-D] [-L LOG_FILE] [--no-host-key-checking] [-p]
-           FILE
+           [-D] [-L LOG_FILE] [--no-host-key-checking] [-p] [-d] [-l]
+           [--sort SORT] [-r REVERSE] [--time-style TIME_STYLE]
+           FILES) [FILE(S ...]
 
 This command list a given remote folder, or returns a file name, if it is not
 a folder.
 
 positional arguments:
-  FILE                  File to process. File must start with prefix r: - no
-                        other file than remote is supported.
+  FILE(S)               File(s) to process. It may contain wildcards. Files
+                        must start with prefix r: - no other files than remote
+                        are supported.
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -85,7 +87,16 @@ optional arguments:
                         to MITM attack. Applicable only for SFTP. [env var:
                         RFSTOOLS_NO_HOST_KEY_CHECKING]
   -p, --prepend-dirname
-                        Enables prepending dirnames to the output.
+                        Enables prepending dirnames (+ r:) to the output.
+  -d, --directory       List directories themself, not their content.
+  -l, --long-format     Use long listing format. Not implemented yet.
+  --sort SORT           Sort by time/size. eg. --sort=time. Not implemented
+                        yet.
+  -r REVERSE, --reverse REVERSE
+                        Reverse order while sorting. Not implemented yet.
+  --time-style TIME_STYLE
+                        Eather standard, fulliso or timestamp. Not implemented
+                        yet.
 
 Args that start with '--' (eg. -U) can also be set in a config file
 (/etc/rfstools.conf or ~/.rfstools.conf or specified via -c). Config file

@@ -9,7 +9,9 @@ usage: pcp [-h] [-c CONFIG_FILE] [-U USERNAME] [-W PASSWORD] [-K KEYFILE]
            SOURCE_FILE [SOURCE_FILE ...] DESTINATION_FILE
 
 Copies file(s) from source address to destination address. At least source or
-destination address must be remote.
+destination address must be remote. Nondirectory files are copied first into
+remote temporary files in the destination and then moved into destination.
+Local coping works as usual.
 
 positional arguments:
   SOURCE_FILE           Source file(s) to transmit. It may contain wildcards.
