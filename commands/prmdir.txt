@@ -3,8 +3,9 @@ usage: prmdir [-h] [-c CONFIG_FILE] [-U USERNAME] [-W PASSWORD] [-K KEYFILE]
               [--client-name CLIENT_NAME] [--use-ntlm-v1] [--use-direct-tcp]
               [--enable-encryption] [--disable-secure-negotiate] [--no-dfs]
               [--dfs-domain-controller DFS_DOMAIN_CONTROLLER]
-              [--dont-require-signing] [-Z REMOTE_PREFIX] [-x TRANSACTION]
-              [-v] [-D] [-L LOG_FILE] [--no-host-key-checking]
+              [--dont-require-signing] [-Z REMOTE_PREFIX] [-R]
+              [-x TRANSACTION] [-v] [-D] [-L LOG_FILE]
+              [--no-host-key-checking]
               FILE
 
 This command list a given remote folder, or returns a file name, if it is not
@@ -69,6 +70,8 @@ optional arguments:
   -Z REMOTE_PREFIX, --remote-prefix REMOTE_PREFIX
                         Contains a prefix, which will be prepended to all
                         remote addresses. [env var: RFSTOOLS_REMOTE_PREFIX]
+  -R, --remote-only     If enabled, will it will add r: prefix to all given
+                        paths without it.. [env var: RFSTOOLS_REMOTE_ONLY]
   -x TRANSACTION, --transaction TRANSACTION
                         Specifies the name of transaction in which the command
                         should be executed. Not implemented yet. [env var:
