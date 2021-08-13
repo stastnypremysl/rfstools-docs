@@ -4,9 +4,10 @@ usage: pls [-h] [-c CONFIG_FILE] [-U USERNAME] [-W PASSWORD] [-K KEYFILE]
            [--enable-encryption] [--disable-secure-negotiate] [--no-dfs]
            [--dfs-domain-controller DFS_DOMAIN_CONTROLLER]
            [--dont-require-signing] [--tls] [--tls-trust-chain]
-           [-Z REMOTE_PREFIX] [-R] [-x TRANSACTION] [-v] [-D] [-L LOG_FILE]
-           [--no-host-key-checking] [-p] [-d] [-l] [--sort SORT] [-r REVERSE]
-           [--time-style TIME_STYLE]
+           [--connection-encoding CONNECTION_ENCODING] [-Z REMOTE_PREFIX] [-R]
+           [--direct-write] [--skip-validation] [-x TRANSACTION] [-v] [-D]
+           [-L LOG_FILE] [--no-host-key-checking] [-p] [-d] [-l] [--sort SORT]
+           [-r REVERSE] [--time-style TIME_STYLE]
            FILES) [FILE(S ...]
 
 This command list a given remote folder, or returns a file name, if it is not
@@ -73,11 +74,23 @@ optional arguments:
                         RFSTOOLS_TLS]
   --tls-trust-chain     The trust chain file path for TLS. Applicable only for
                         FTP. [env var: RFSTOOLS_TLS_TRUST_CHAIN]
+  --connection-encoding CONNECTION_ENCODING
+                        Sets an encoding for a FTP connection. Applicable only
+                        for FTP. Defaults to UTF8. [env var:
+                        RFSTOOLS_CONNECTION_ENCODING]
   -Z REMOTE_PREFIX, --remote-prefix REMOTE_PREFIX
                         Contains a prefix, which will be prepended to all
                         remote addresses. [env var: RFSTOOLS_REMOTE_PREFIX]
   -R, --remote-only     If enabled, will it will add r: prefix to all given
                         paths without it. [env var: RFSTOOLS_REMOTE_ONLY]
+  --direct-write        NOT IMPLEMENTED YET. If enabled, no tmp files during
+                        upload/push of files will be created and every write
+                        on remote filesystem will be done directly to the
+                        destination [env var: RFSTOOLS_DIRECT_WRITE]
+  --skip-validation     NOT IMPLEMENTED YET. If enabled, some validations of
+                        input will be skipped. Undefined behavior may happen
+                        if input is wrong. Increses performance. [env var:
+                        RFSTOOLS_SKIP_VALIDATION]
   -x TRANSACTION, --transaction TRANSACTION
                         Specifies the name of transaction in which the command
                         should be executed. Not implemented yet. [env var:
