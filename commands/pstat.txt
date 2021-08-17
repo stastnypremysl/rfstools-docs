@@ -1,17 +1,16 @@
-usage: pls [-h] [-c CONFIG_FILE] [-U USERNAME] [-W PASSWORD] [-K KEYFILE]
-           [-H HOST] [-P PORT] -T CONNECTION_TYPE [-S SERVICE_NAME]
-           [--client-name CLIENT_NAME] [--use-ntlm-v1] [--use-direct-tcp]
-           [--enable-encryption] [--disable-secure-negotiate] [--no-dfs]
-           [--dfs-domain-controller DFS_DOMAIN_CONTROLLER]
-           [--dont-require-signing] [--tls] [--tls-trust-chain]
-           [--connection-encoding CONNECTION_ENCODING] [-Z REMOTE_PREFIX] [-R]
-           [--direct-write] [--skip-validation] [-x TRANSACTION] [-v] [-D]
-           [-L LOG_FILE] [--no-host-key-checking] [-p] [-d] [-l] [--sort SORT]
-           [-r REVERSE] [--time-style TIME_STYLE] [--dereference]
-           FILES) [FILE(S ...]
+usage: pstat [-h] [-c CONFIG_FILE] [-U USERNAME] [-W PASSWORD] [-K KEYFILE]
+             [-H HOST] [-P PORT] -T CONNECTION_TYPE [-S SERVICE_NAME]
+             [--client-name CLIENT_NAME] [--use-ntlm-v1] [--use-direct-tcp]
+             [--enable-encryption] [--disable-secure-negotiate] [--no-dfs]
+             [--dfs-domain-controller DFS_DOMAIN_CONTROLLER]
+             [--dont-require-signing] [--tls] [--tls-trust-chain]
+             [--connection-encoding CONNECTION_ENCODING] [-Z REMOTE_PREFIX]
+             [-R] [--direct-write] [--skip-validation] [-x TRANSACTION] [-v]
+             [-D] [-L LOG_FILE] [--no-host-key-checking] -f FORMAT
+             FILES) [FILE(S ...]
 
-This command list a given remote folder, or returns a file name, if it is not
-a folder.
+This command displays file status. Tokens: %%s - total size of a file, %%g -
+group id of owner, %u - user id of owner
 
 positional arguments:
   FILE(S)               File(s) to process. It may contain wildcards. Files
@@ -106,18 +105,9 @@ optional arguments:
                         Be aware, that using this option makes you volnerable
                         to MITM attack. Applicable only for SFTP. [env var:
                         RFSTOOLS_NO_HOST_KEY_CHECKING]
-  -p, --prepend-dirname
-                        Enables prepending dirnames (+ r:) to the output.
-  -d, --directory       List directories themself, not their content.
-  -l, --long-format     Use long listing format. Not implemented yet.
-  --sort SORT           Sort by time/size. eg. --sort=time. Not implemented
-                        yet.
-  -r REVERSE, --reverse REVERSE
-                        Reverse order while sorting. Not implemented yet.
-  --time-style TIME_STYLE
-                        Eather standard, fulliso or timestamp. Not implemented
-                        yet.
-  --dereference         Dereferences symlinks.
+  -f FORMAT, --format FORMAT
+                        Use the specified FORMAT instead of the default.
+                        Outputs a newline after each use of FORMAT.
 
 Args that start with '--' (eg. -U) can also be set in a config file
 (/etc/rfstools.conf or ~/.rfstools.conf or specified via -c). Config file

@@ -13,4 +13,5 @@ The developer documentation is in file [rfstools-dev-doc.pdf](./rfstools-dev-doc
 * [pmv](./commands/pmv.txt)
 * [prm](./commands/prm.txt)
 * [prmdir](./commands/prmdir.txt)
+* [pstat](./commands/pstat.txt)
 * [ptouch](./commands/ptouch.txt)
