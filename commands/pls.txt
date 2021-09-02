@@ -5,10 +5,10 @@ usage: pls [-h] [-c CONFIG_FILE] [-U USERNAME] [-W PASSWORD] [-K KEYFILE]
            [--dfs-domain-controller DFS_DOMAIN_CONTROLLER]
            [--dont-require-signing] [--tls] [--tls-trust-chain]
            [--passive-mode] [--connection-encoding CONNECTION_ENCODING]
-           [-Z REMOTE_PREFIX] [-R] [--direct-write] [--skip-validation]
-           [-x TRANSACTION] [-v] [-D] [-L LOG_FILE] [--no-host-key-checking]
-           [-p] [-d] [-l] [--sort SORT] [-r REVERSE] [--time-style TIME_STYLE]
-           [--dereference]
+           [--dont-use-list-a] [-Z REMOTE_PREFIX] [-R] [--direct-write]
+           [--skip-validation] [-x TRANSACTION] [-v] [-D] [-L LOG_FILE]
+           [--no-host-key-checking] [-p] [-d] [-l] [--sort SORT] [-r REVERSE]
+           [--time-style TIME_STYLE] [--dereference]
            FILES) [FILE(S ...]
 
 This command list a given remote folder, or returns a file name, if it is not
@@ -81,6 +81,11 @@ optional arguments:
                         Sets an encoding for a FTP connection. Applicable only
                         for FTP. Defaults to UTF8. [env var:
                         RFSTOOLS_CONNECTION_ENCODING]
+  --dont-use-list-a     Disables usage of LIST -a command and uses LIST
+                        command instead. You might consider using option
+                        --direct-write when using --dont-use-list-a.
+                        Applicable only for FTP. [env var:
+                        RFSTOOLS_DONT_USE_LIST_A]
   -Z REMOTE_PREFIX, --remote-prefix REMOTE_PREFIX
                         Contains a prefix, which will be prepended to all
                         remote addresses. [env var: RFSTOOLS_REMOTE_PREFIX]
