@@ -12,7 +12,7 @@ usage: pls [-h] [-c CONFIG_FILE] [-U USERNAME] [-W PASSWORD] [-K KEYFILE]
            FILES) [FILE(S ...]
 
 This command list a given remote folder, or returns a file name, if it is not
-a folder.
+a folder. By default, no symlinks are dereferenced.
 
 positional arguments:
   FILE(S)               File(s) to process. It may contain wildcards. Files
@@ -126,7 +126,7 @@ optional arguments:
                         yet.
   -a, --all             Show hidden files in listed folders including . and ..
   -A, --almost-all      Show hidden files in listed folders excluding . and ..
-  --dereference         Dereferences symlinks.
+  --dereference         Dereferences symlinks. Not implemented yet.
 
 Args that start with '--' (eg. -U) can also be set in a config file
 (/etc/rfstools.conf or ~/.rfstools.conf or specified via -c). Config file
