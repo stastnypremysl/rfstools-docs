@@ -8,7 +8,7 @@ usage: pls [-h] [-c CONFIG_FILE] [-U USERNAME] [-W PASSWORD] [-K KEYFILE]
            [--dont-use-list-a] [-Z REMOTE_PREFIX] [-R] [--direct-write]
            [--skip-validation] [-x TRANSACTION] [-v] [-D] [-L LOG_FILE]
            [--no-host-key-checking] [-p] [-d] [-l] [--sort SORT] [-r REVERSE]
-           [--time-style TIME_STYLE] [--dereference]
+           [--time-style TIME_STYLE] [-a ALL] [-A ALMOST_ALL] [--dereference]
            FILES) [FILE(S ...]
 
 This command list a given remote folder, or returns a file name, if it is not
@@ -125,6 +125,9 @@ optional arguments:
   --time-style TIME_STYLE
                         Eather standard, fulliso or timestamp. Not implemented
                         yet.
+  -a ALL, --all ALL     Show hidden files in listed folders including . and ..
+  -A ALMOST_ALL, --almost-all ALMOST_ALL
+                        Show hidden files in listed folders excluding . and ..
   --dereference         Dereferences symlinks.
 
 Args that start with '--' (eg. -U) can also be set in a config file
