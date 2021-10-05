@@ -3,10 +3,11 @@ usage: prmdir [-h] [-c CONFIG_FILE] [-U USERNAME] [-W PASSWORD] [-K KEYFILE]
               [--client-name CLIENT_NAME] [--use-ntlm-v1] [--use-direct-tcp]
               [--enable-encryption] [--disable-secure-negotiate] [--no-dfs]
               [--dfs-domain-controller DFS_DOMAIN_CONTROLLER]
-              [--dont-require-signing] [--tls] [--tls-trust-chain]
-              [--passive-mode] [--connection-encoding CONNECTION_ENCODING]
-              [--dont-use-list-a] [-Z REMOTE_PREFIX] [-R] [--direct-write]
-              [--skip-validation] [-x TRANSACTION] [-v] [-D] [-L LOG_FILE]
+              [--dont-require-signing] [--auth-protocol AUTH_PROTOCOL] [--tls]
+              [--tls-trust-chain] [--passive-mode]
+              [--connection-encoding CONNECTION_ENCODING] [--dont-use-list-a]
+              [-Z REMOTE_PREFIX] [-R] [--direct-write] [--skip-validation]
+              [-x TRANSACTION] [-v] [-D] [-L LOG_FILE]
               [--no-host-key-checking]
               FILE
 
@@ -69,6 +70,11 @@ optional arguments:
   --dont-require-signing
                         Disables signing requirement. Applicable only for
                         SMB23. [env var: RFSTOOLS_DONT_REQUIRE_SIGNING]
+  --auth-protocol AUTH_PROTOCOL
+                        The protocol to use for authentication. Possible
+                        values are 'negotiate', 'ntlm' or 'kerberos'. Defaults
+                        to 'negotiate'. Applicable only for SMB23. [env var:
+                        RFSTOOLS_AUTH_PROTOCOL]
   --tls                 Activate TLS. Applicable only for FTP. [env var:
                         RFSTOOLS_TLS]
   --tls-trust-chain     The trust chain file path for TLS. Applicable only for
