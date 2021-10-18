@@ -8,8 +8,8 @@ usage: pls [-h] [-c CONFIG_FILE] [-U USERNAME] [-W PASSWORD] [-K KEYFILE]
            [--connection-encoding CONNECTION_ENCODING] [--dont-use-list-a]
            [-Z REMOTE_PREFIX] [-R] [--direct-write] [--skip-validation]
            [-x TRANSACTION] [-v] [-D] [-L LOG_FILE] [--no-host-key-checking]
-           [-p] [-d] [-l] [--sort SORT] [-r] [--time-style TIME_STYLE] [-a]
-           [-A] [--dereference]
+           [-G] [-p] [-d] [-l] [--sort SORT] [-r] [--time-style TIME_STYLE]
+           [-a] [-A] [--dereference]
            FILES) [FILE(S ...]
 
 This command list a given remote folder, or returns a file name, if it is not
@@ -120,6 +120,11 @@ optional arguments:
                         Be aware, that using this option makes you volnerable
                         to MITM attack. Applicable only for SFTP. [env var:
                         RFSTOOLS_NO_HOST_KEY_CHECKING]
+  -G, --ignore-failed-wildcards
+                        When wildcard lookup fails in 'many-type' positional
+                        argument and the wildcard itself doesn't exist as a
+                        file, the wildcard will be skipped. [env var:
+                        RFSTOOLS_IGNORE_FAILED_WILDCARDS]
   -p, --prepend-dirname
                         Enables prepending dirnames (+ r:) to the output.
   -d, --directory       List directories themself, not their content.

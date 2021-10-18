@@ -8,8 +8,8 @@ usage: pcp [-h] [-c CONFIG_FILE] [-U USERNAME] [-W PASSWORD] [-K KEYFILE]
            [--connection-encoding CONNECTION_ENCODING] [--dont-use-list-a]
            [-Z REMOTE_PREFIX] [-R] [--direct-write] [--skip-validation]
            [-x TRANSACTION] [-v] [-D] [-L LOG_FILE] [--no-host-key-checking]
-           [-t TARGET_FOLDER] [-X] [-C] [-E REMOTE_ENCODING] [--local-crlf]
-           [--local-encoding LOCAL_ENCODING] [-r] [-f]
+           [-G] [-t TARGET_FOLDER] [-X] [-C] [-E REMOTE_ENCODING]
+           [--local-crlf] [--local-encoding LOCAL_ENCODING] [-r] [-f]
            SOURCE_FILE [SOURCE_FILE ...] DESTINATION_FILE
 
 Copies file(s) from source address to destination address. At least source or
@@ -124,6 +124,11 @@ optional arguments:
                         Be aware, that using this option makes you volnerable
                         to MITM attack. Applicable only for SFTP. [env var:
                         RFSTOOLS_NO_HOST_KEY_CHECKING]
+  -G, --ignore-failed-wildcards
+                        When wildcard lookup fails in 'many-type' positional
+                        argument and the wildcard itself doesn't exist as a
+                        file, the wildcard will be skipped. [env var:
+                        RFSTOOLS_IGNORE_FAILED_WILDCARDS]
   -t TARGET_FOLDER, --target-folder TARGET_FOLDER
                         If target folder is specified, it will be used instead
                         of DESTINATION FILE. DESTINATION FILE positional
