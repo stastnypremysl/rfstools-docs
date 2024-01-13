@@ -19,7 +19,7 @@ positional arguments:
                         must start with prefix r: - no other files than remote
                         are supported.
 
-optional arguments:
+options:
   -h, --help            show this help message and exit
   -c CONFIG_FILE, --config-file CONFIG_FILE
                         Configuration file path. [env var: RFSTOOLS_CONFIG]
@@ -123,9 +123,8 @@ optional arguments:
                         Use the specified FORMAT instead of the default.
                         Outputs a newline after each use of FORMAT.
 
-Args that start with '--' (eg. -U) can also be set in a config file
-(/etc/rfstools.conf or ~/.rfstools.conf or specified via -c). Config file
-syntax allows: key=value, flag=true, stuff=[a,b,c] (for details, see syntax at
-https://goo.gl/R74nmi). If an arg is specified in more than one place, then
-commandline values override environment variables which override config file
-values which override defaults.
+Args that start with '--' can also be set in a config file (/etc/rfstools.conf
+or ~/.rfstools.conf or specified via -c). Config file syntax allows:
+key=value, flag=true, stuff=[a,b,c] (for details, see syntax at
+https://goo.gl/R74nmi). In general, command-line values override environment
+variables which override config file values which override defaults.
